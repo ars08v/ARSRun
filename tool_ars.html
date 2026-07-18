@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <!-- الربط بملف التنسيق المحدث -->
+    <link rel="stylesheet" href="css/newstyle.css?v=2.0">
+    <title>أداة تحرير الفصول | ARS</title>
+</head>
+<body>
+    <nav>
+        <a href="index.html">العودة للرئيسية</a>
+    </nav>
+
+    <section id="tool-details" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <!-- الصورة تظهر بالكامل بفضل الكلاس الجديد -->
+        <img src="assets/tool_banner.png" class="tool-banner-img" alt="ARS Editor Banner">
+        
+        <h1>أداة تحرير الفصول (ARS Editor)</h1>
+        
+        <div class="card">
+            <h3>مميزات الأداة:</h3>
+            <ul>
+                <li>تعمل بكفاءة عالية على جميع مواقع المانجا والمانهوا.</li>
+                <li>مصممة للعمل بشكل كامل على بيئة Termux.</li>
+                <li>أتمتة كاملة لعمليات التقطيع والمعالجة.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>طريقة التشغيل:</h3>
+            <p>1. تثبيت الحزم: <code>pkg install nodejs imagemagick git</code></p>
+            <p>2. إعطاء الصلاحية: <code>chmod +x tools/ars_tool.sh</code></p>
+            <p>3. تفعيل الأداة: <code>./tools/ars_tool.sh</code></p>
+        </div>
+
+        <!-- رابط التحميل المباشر للملف الموجود في مجلد tools -->
+        <a href="tools/ars_tool.sh" download="ars_tool.sh" class="card" style="display: block; margin-top: 20px; text-align: center; border: 2px solid #a450ff;">
+            📥 تحميل ملف الأداة (ars_tool.sh)
+        </a>
+    </section>
+
+    <footer style="margin-top: 40px; padding: 20px;">
+        <p>جميع حقوق الأداة محفوظة للمطور: 𝑨𝑹𝑺 © 2026</p>
+    </footer>
+</body>
+</html>
+
