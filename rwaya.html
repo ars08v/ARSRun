@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المكتبة - ARS</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #000; font-family: sans-serif; }
+        
+        .video-container { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        #bg-video { width: 100%; height: 100%; object-fit: contain; }
+
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; align-items: center;
+            color: white; cursor: pointer; text-align: center;
+            padding-top: 5px; /* تقليل المساحة لأقصى درجة */
+        }
+
+        h1 { color: #a450ff; margin: 0 0 5px 0; font-size: 1.4em; }
+
+        .links-container { 
+            display: flex; 
+            justify-content: space-between; 
+            width: 90%; 
+            margin-top: 0; 
+        }
+
+        .card { 
+            background: rgba(26, 26, 26, 0.8); 
+            border: 1px solid #a450ff; 
+            padding: 6px; 
+            border-radius: 10px; 
+            text-decoration: none; 
+            color: white; 
+            width: 45%; 
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container" onclick="enableSound()">
+        <video autoplay loop muted playsinline id="bg-video">
+            <source src="assets_rwaya/rwayaars.mp4" type="video/mp4">
+        </video>
+        
+        <div class="overlay">
+            <h1>مكتبة الروايات</h1>
+            <div class="links-container">
+                <a href="https://kolnovel.com/" class="card">kolnovel</a>
+                <a href="https://mknov.com/" class="card">mknov</a>
+            </div>
+            <p id="hint" style="font-size: 0.7em; margin: 2px 0;">(اضغط في أي مكان لتفعيل الصوت)</p>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('bg-video');
+        function enableSound() {
+            if (video.muted) {
+                video.muted = false;
+                document.getElementById('hint').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+
