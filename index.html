@@ -27,7 +27,6 @@
             color: #a450ff;
             font-size: 14px;
         }
-        /* كلاس التأثير عند الضغط */
         .active-press { transform: scale(0.95); transition: 0.1s; }
         
         .lib-card, .skill-card, .project-card {
@@ -104,7 +103,8 @@
     <section class="content-library" id="library" style="padding: 40px 20px; text-align: center;">
         <h2 style="color: white; margin-bottom: 20px;">المكتبة</h2>
         <div class="library-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 600px; margin: 0 auto;">
-            <a href="novel_page.html" class="lib-card">
+            <!-- تم تحديث الرابط هنا ليطابق اسم الملف rwaya.html -->
+            <a href="rwaya.html" class="lib-card">
                 <img src="assets/rwaya.png" alt="Novels">
                 <h3 style="color: #a450ff;">الروايات</h3>
             </a>
@@ -132,7 +132,6 @@
     <a href="chat.html" class="chat-float" title="دردش مع مساعد ARS"><span>💬</span></a>
 
     <script>
-        // تفعيل تأثير الضغط لجميع الكروت
         document.querySelectorAll('.lib-card, .skill-card, .project-card').forEach(item => {
             item.addEventListener('mousedown', () => item.classList.add('active-press'));
             item.addEventListener('mouseup', () => item.classList.remove('active-press'));
