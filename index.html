@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6CCRWNBG5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K6CCRWNBG5');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARSRun - Official Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .chat-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #a450ff;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(164, 80, 255, 0.4);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        .chat-float:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <!-- نقل عداد الزوار إلى الأعلى -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://hits.seeyoufarm.com">
+          <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fars08v.github.io%2FARSRun%2F&count_bg=%23A450FF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=الزوار&edge_flat=false" style="max-width: 100%; height: auto;"/>
+        </a>
+    </div>
+
+    <nav>
+        <a href="#about">عن</a> <a href="#skills">مهارات</a> 
+        <a href="#projects">المشاريع</a> <a href="#contact">اتصال</a>
+    </nav>
+
+    <section class="hero" id="about">
+        <h1>مرحباً، أنا 𝑨𝑹𝑺</h1>
+        <p>مطور برامج وتطبيقات عملية وحديثة</p>
+        <a href="#projects" class="cta-button">استعرض أعمالي</a>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2>المهارات</h2>
+        <div class="skills-grid">
+            <a href="https://www.python.org" target="_blank" class="skill-card">
+                <img src="assets/arsp.png" alt="Python"> <p>Python</p>
+            </a>
+            <a href="https://termux.dev" target="_blank" class="skill-card">
+                <img src="assets/arso.png" alt="Termux"> <p>Termux</p>
+            </a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" class="skill-card">
+                <img src="assets/arsi.png" alt="JS"> <p>JavaScript</p>
+            </a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank" class="skill-card">
+                <img src="assets/arsu.png" alt="CSS"> <p>CSS/HTML</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <h2>المشاريع والأدوات</h2>
+        <div class="projects-grid">
+            <a href="tool_ars.html" class="project-card">
+                <img src="assets/project1.png" alt="ARS Tool">
+                <p>أداة تحرير الفصول</p>
+            </a>
+            <a href="https://instagram.com/egresars" target="_blank" class="project-card">
+                <img src="assets/project2.png" alt="Bot">
+                <p>بوت الإشراف</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="music-section" style="text-align: center; margin: 40px auto; background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #a450ff; max-width: 400px;">
+        <h3 style="color: #a450ff;">استمع إلى الموسيقى المفضلة</h3>
+        <img src="assets/arsmu.png" alt="Music Cover" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #a450ff; margin-bottom: 15px;">
+        <audio controls style="width: 80%; max-width: 300px; filter: invert(1) hue-rotate(180deg);">
+            <source src="assets/music.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <footer id="contact">
+        <a href="https://instagram.com/s.4ps" target="_blank">
+            <img src="assets/profile.png" alt="Profile" class="profile-img">
+        </a>
+        <h2>تواصل معي</h2>
+        <a href="https://instagram.com/s.4ps" target="_blank" class="social-link">@s.4ps</a>
+    </footer>
+
+    <a href="chat.html" class="chat-float" title="دردش مع مساعد ARS">
+        <span>💬</span>
+    </a>
+</body>
+</html>
+
