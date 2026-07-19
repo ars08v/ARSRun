@@ -7,55 +7,52 @@
     <style>
         body { background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; height: 100vh; margin: 0; align-items: center; }
         .banner { width: 100%; max-width: 500px; margin-top: 10px; border-radius: 10px; }
-        #chat-box { flex: 1; width: 100%; max-width: 500px; overflow-y: auto; padding: 20px; border-bottom: 1px solid #333; }
-        .msg { margin-bottom: 15px; padding: 12px; border-radius: 12px; }
-        .bot { background: #1a1a1a; border: 1px solid #a450ff; align-self: flex-start; }
-        .user { background: #333; align-self: flex-end; }
+        #chat-box { flex: 1; width: 100%; max-width: 500px; overflow-y: auto; padding: 20px; }
+        .msg { margin-bottom: 10px; padding: 10px; border-radius: 10px; }
+        .bot { background: #1a1a1a; border: 1px solid #a450ff; }
+        .user { background: #333; text-align: left; }
         .input-area { width: 100%; max-width: 500px; padding: 20px; display: flex; gap: 10px; }
-        input { flex: 1; background: #222; color: #fff; border: 1px solid #a450ff; padding: 12px; border-radius: 10px; }
-        button { background: #a450ff; color: white; padding: 10px 20px; border-radius: 10px; border: none; }
+        input { flex: 1; background: #222; color: #fff; padding: 10px; border-radius: 5px; border: 1px solid #a450ff; }
+        button { background: #a450ff; color: white; padding: 10px 20px; border-radius: 5px; border: none; }
     </style>
 </head>
 <body>
+    <img src="assets/ai_banner.png" class="banner" alt="Banner">
+    <div id="chat-box"></div>
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="اكتب هنا...">
+        <button onclick="sendMessage()">إرسال</button>
+    </div>
 
-<img src="assets/ai_banner.png" class="banner" alt="Banner">
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const chatBox = document.getElementById('chat-box');
+            const userText = input.value;
+            if (!userText) return;
 
-<div id="chat-box">
-    <div class="msg bot">أهلاً بك! كيف يمكنني مساعدتك اليوم؟</div>
-</div>
+            chatBox.innerHTML += `<div class="msg user">أنت: ${userText}</div>`;
+            input.value = '';
 
-<div class="input-area">
-    <input type="text" id="userInput" placeholder="اكتب رسالتك هنا...">
-    <button onclick="sendMessage()">إرسال</button>
-</div>
+            try {
+                const response = await fetch("/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userText })
+                });
 
-<script>
-    async function sendMessage() {
-        const input = document.getElementById('userInput');
-        const chatBox = document.getElementById('chat-box');
-        const userText = input.value;
-        if (!userText) return;
-
-        chatBox.innerHTML += `<div class="msg user">أنت: ${userText}</div>`;
-        input.value = '';
-
-        try {
-            const response = await fetch("/api/chat", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userText })
-            });
-
-            const data = await response.json();
-            if (data.choices) {
-                chatBox.innerHTML += `<div class="msg bot">${data.choices[0].message.content}</div>`;
+                const data = await response.json();
+                if (data.choices) {
+                    chatBox.innerHTML += `<div class="msg bot">${data.choices[0].message.content}</div>`;
+                } else {
+                    chatBox.innerHTML += `<div class="msg bot" style="color:red;">خطأ: ${data.error || 'غير معروف'}</div>`;
+                }
+            } catch (err) {
+                chatBox.innerHTML += `<div class="msg bot" style="color:red;">فشل الاتصال بالسيرفر.</div>`;
             }
-        } catch (error) {
-            chatBox.innerHTML += `<div class="msg bot" style="color:red;">حدث خطأ في الاتصال.</div>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
         }
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
-</script>
+    </script>
 </body>
 </html>
 
