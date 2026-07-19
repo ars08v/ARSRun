@@ -42,13 +42,16 @@
                 });
 
                 const data = await response.json();
-                if (data.choices) {
+                
+                if (data.choices && data.choices[0]) {
                     chatBox.innerHTML += `<div class="msg bot">${data.choices[0].message.content}</div>`;
                 } else {
-                    chatBox.innerHTML += `<div class="msg bot" style="color:red;">خطأ: ${data.error || 'غير معروف'}</div>`;
+                    // هذا الجزء يظهر الخطأ الحقيقي كنص واضح
+                    const errorDetails = data.error ? (typeof data.error === 'string' ? data.error : JSON.stringify(data.error)) : 'خطأ غير معروف';
+                    chatBox.innerHTML += `<div class="msg bot" style="color:red;">خطأ: ${errorDetails}</div>`;
                 }
             } catch (err) {
-                chatBox.innerHTML += `<div class="msg bot" style="color:red;">فشل الاتصال بالسيرفر.</div>`;
+                chatBox.innerHTML += `<div class="msg bot" style="color:red;">فشل الاتصال: ${err.message}</div>`;
             }
             chatBox.scrollTop = chatBox.scrollHeight;
         }
